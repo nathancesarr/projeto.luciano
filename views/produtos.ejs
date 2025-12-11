@@ -1,0 +1,37 @@
+<% layout('layout', { user: user }) %>
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h2>Meus Produtos</h2>
+</div>
+
+<div class="card mb-4">
+  <div class="card-body">
+    <h5>Adicionar Produto</h5>
+    <form action="/produtos/criar" method="POST" class="row g-2">
+      <div class="col-md-6">
+        <input class="form-control" name="nome" placeholder="Nome do produto" required>
+      </div>
+      <div class="col-md-4">
+        <input class="form-control" name="preco" placeholder="Preço" required>
+      </div>
+      <div class="col-md-2">
+        <button class="btn btn-success w-100" type="submit">Adicionar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<table class="table table-hover">
+  <thead><tr><th>Nome</th><th>Preço</th><th>Ações</th></tr></thead>
+  <tbody>
+    <% produtos.forEach(p => { %>
+      <tr>
+        <td><%= p.nome %></td>
+        <td>R$ <%= p.preco.toFixed(2) %></td>
+        <td>
+          <a class="btn btn-sm btn-primary" href="/produtos/editar/<%= p.id %>">Editar</a>
+          <a class="btn btn-sm btn-danger" href="/produtos/deletar/<%= p.id %>" onclick="return confirm('Excluir produto?')">Excluir</a>
+        </td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>

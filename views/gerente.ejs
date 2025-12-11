@@ -1,0 +1,42 @@
+<% layout('layout', { user: user }) %>
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h2>Painel do Gerente</h2>
+   
+</div>
+
+<div class="card mb-4">
+  <div class="card-body">
+    <h5>Cadastrar Funcionário</h5>
+    <form action="/gerente/criar" method="POST" class="row g-2">
+      <div class="col-md-4">
+        <input class="form-control" name="nome" placeholder="Nome" required>
+      </div>
+      <div class="col-md-4">
+        <input class="form-control" name="email" placeholder="Email" required>
+      </div>
+      <div class="col-md-3">
+        <input class="form-control" name="senha" placeholder="Senha" required>
+      </div>
+      <div class="col-md-1">
+        <button class="btn btn-success w-100" type="submit">Criar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<h4>Funcionários</h4>
+<table class="table table-striped">
+  <thead><tr><th>Nome</th><th>Email</th><th>Ações</th></tr></thead>
+  <tbody>
+    <% funcionarios.forEach(f => { %>
+      <tr>
+        <td><%= f.nome %></td>
+        <td><%= f.email %></td>
+        <td>
+          <a class="btn btn-sm btn-primary" href="/gerente/editar/<%= f.id %>">Editar</a>
+          <a class="btn btn-sm btn-danger" href="/gerente/deletar/<%= f.id %>" onclick="return confirm('Excluir funcionário?')">Excluir</a>
+        </td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
