@@ -10,12 +10,10 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
       <div class="container-fluid d-flex justify-content-center">
         
-        <!-- TEXTO CENTRALIZADO -->
         <a class="navbar-brand m-0" href="/" style="font-size: 1.5rem;">
           Supermercado
         </a>
 
-        <!-- LOGIN (fica à direita, mas invisível na tela de login) -->
         <div class="position-absolute end-0 me-3">
           <% if (user && user.name) { %>
             <span class="navbar-text me-3">Olá, <%= user.name %></span>
