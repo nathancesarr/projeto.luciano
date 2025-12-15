@@ -9,3 +9,4 @@ router.post("/gerente/atualizar/:id", gerente.atualizar);
 router.get("/gerente/deletar/:id", gerente.deletar);
 
 module.exports = router;
+
