@@ -2,7 +2,7 @@ const express = require("express");
 const session = require("express-session");
 const bodyParser = require("body-parser");
 const path = require("path");
-const engine = require("ejs-mate"); // EJS-MATE
+const engine = require("ejs-mate");
 
 const authRoutes = require("./routes/auth");
 const gerenteRoutes = require("./routes/gerente");
