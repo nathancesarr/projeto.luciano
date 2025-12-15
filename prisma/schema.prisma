@@ -8,17 +8,17 @@ generator client {
 }
 
 model Funcionario {
-  id      Int      @id @default(autoincrement())
-  nome    String
-  email   String   @unique
-  senha   String
+  id       Int       @id @default(autoincrement())
+  nome     String
+  email    String    @unique
+  senha    String
   produtos Produto[]
 }
 
 model Produto {
-  id            Int     @id @default(autoincrement())
+  id            Int         @id @default(autoincrement())
   nome          String
   preco         Float
   funcionarioId Int
-  funcionario   Funcionario @relation(fields: [funcionarioId], references: [id])
+  funcionario   Funcionario @relation(fields: [funcionarioId], references: [id], onDelete: Cascade)
 }
