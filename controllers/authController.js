@@ -5,7 +5,6 @@ const bcrypt = require("bcrypt");
 exports.login = async (req, res) => {
     const { email, senha } = req.body;
 
-    // gerente fixo
     if(email === "gerente@super.com" && senha === "1234"){
         req.session.role = "MANAGER";
         req.session.name = "Gerente";
